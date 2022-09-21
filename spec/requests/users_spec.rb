@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: :request do # rubocop:todo Metrics/BlockLength
+RSpec.describe 'Users', type: :request do # rubocop:todo Metrics/BlockLength
   describe 'GET /index' do
     before(:example) do
-      get '/users/1/posts'
+      get '/users'
     end
 
     it 'return correct response' do
@@ -17,13 +17,13 @@ RSpec.describe 'Posts', type: :request do # rubocop:todo Metrics/BlockLength
     end
 
     it 'body should includes correct placeholder text' do
-      expect(response.body).to include('Here is a list of posts for a given user')
+      expect(response.body).to include('Here is a list of users')
     end
   end
 
   describe 'GET /show' do
     before(:example) do
-      get '/users/1/posts/1'
+      get '/users/1'
     end
 
     it 'return correct response' do
@@ -35,7 +35,7 @@ RSpec.describe 'Posts', type: :request do # rubocop:todo Metrics/BlockLength
     end
 
     it 'body should includes correct placeholder text' do
-      expect(response.body).to include('Post content for a given user')
+      expect(response.body).to include('Here is information about a given user')
     end
   end
 end
