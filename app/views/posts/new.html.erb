@@ -1,9 +1,18 @@
-<h1>New post</h1>
-
-<%= render "form", post: @post %>
-
-<br>
-
-<div>
-  <%= link_to "Back to posts", posts_path %>
-</div>
+<section class="post-form-cont">
+  <h1>Create new Post </h1>
+  <%= form_with model: Post, url: user_posts_path, class:"post-form", method: :post do |f| %>
+      <div>
+      <%= f.hidden_field :comments_counter, value:0 %>
+      <%= f.hidden_field :likes_counter, value:0 %>
+      </div>
+      <div>
+      <%= f.label :title,"Title", class:'label' %>
+      <%= f.text_field :title, placeholder: 'Title of the post...', class:"title-input" %>
+      <%= f.label :text, "Content", class:'label' %>
+      </div>
+      <div>
+      <%= f.text_area :text, placeholder: 'Write your post...', class:"text-input" %>
+      <%= f.submit "Submit Post", class:"submit-btn", id:"post-btn" %>
+      </div>
+  <% end %>
+</section>

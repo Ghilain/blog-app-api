@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @post %>
-
+<section >
+<div class="post-wrapper">
 <div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+  <span> <%= @post.title %> By  <%= @post.author.name %> </span>
+  <span>
+    Comments: <%= @post.comments_counter %> , Likes: <%= @post.likes_counter %>
+  </span>
 </div>
+<p><%= @post.text %></p>
+</div>
+  <ul class="comments-list-cont">
+      <% if @post.comments_counter > 0 %>
+          <%= render 'shared/comment', comments: @post.comments %>
+      <% else %>
+      <li>No comments</li>
+    <% end %>
+  </ul>   
+</section>

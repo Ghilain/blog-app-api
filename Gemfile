@@ -6,26 +6,26 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.0.4'
+gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
+gem 'rubocop'
+gem 'rubocop-rails'
+gem 'sqlite3', '~> 1.4'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-# Use pg as the database for Active Record
-gem 'cancancan'
-gem 'devise'
-# gem 'jwt', '~> 2.4'
+# Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
+
+gem 'devise'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
-gem 'bullet'
-
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'ffi'
 gem 'turbo-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
@@ -33,8 +33,6 @@ gem 'stimulus-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
-
-gem 'bootstrap', '~> 5.1.3'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -59,8 +57,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rails-controller-testing'
+  # gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -77,11 +74,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'ffi', '~> 1.15', '>= 1.15.5'
+  gem 'rspec-activemodel-mocks'
+  gem 'rspec-rails', '~> 4.0.0'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-end
-
-group :development, :test do
-  gem 'database_cleaner'
-  gem 'rspec-rails', '>= 3.9.0'
 end

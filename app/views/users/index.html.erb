@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Users</h1>
-
-<div id="users">
+<h1>The users List :</h1> 
+<section>
+<div>
   <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
+    <div class='user-contlll nbghuuainer'>
+    <div class='user-info'> 
+    <span><%= image_tag user.photo, :class => 'user-photo', alt: 'User photo' %></span>
+      <h2><%= link_to user.name, user, :class => 'user-name' %></h2>
+      <p class='user-postcounter'>Number of posts: <%= user.posts_counter.nil? ? 0 : user.posts_counter %></p>
+    </div>
+</div>
   <% end %>
 </div>
-
-<%= link_to "New user", new_user_path %>
+</section>

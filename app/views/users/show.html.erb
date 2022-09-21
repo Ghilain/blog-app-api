@@ -1,10 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<h1>The users profile</h1>
+<section>
+    <div class='user-container'>
+    <div class='user-info'> 
+      <%= image_tag @user.photo, :class => 'user-photo', alt: 'User photo' %>
+      <h1 class="user-name"><%= @user.name  %></h1>
+      <p>Number of posts: <%= @user.posts_counter.nil? ? 0 : @user.posts_counter%></p>
+      </div>
+      <div class="bio">
+      <h1>Bio</h1>
+      <p><%= @user.bio %></p>
+      </div>
+      <h1>Posts list</h1>
+      <% @user.post_ids.each do |post| %>
+        <div class='post-card'>
+        <span><%= image_tag @user.photo, :class => 'user-photo', alt: 'User photo' %></span>
+        <h2><%= post.title %></h2>
+        <p><%= post.text %></p>
+        <div class='likes-comments'>
+          <p>Comments: <%= post.comments_counter.nil? ? 0 : post.comments_counter %></p>
+          <p>Likes: <%= post.likes_counter.nil? ? 0 : post.likes_counter %></p>
+        </div>
+      </div>
+      <% end %>
+      <button><%=link_to 'See all posts', user_posts_path(@user), :class => 'all-btn'%></button>
+    </div>
+</section>
 
-<%= render @user %>
-
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
-</div>
