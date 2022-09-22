@@ -1,9 +1,12 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
-  resources :users, only: %i[index show] do
-    resources :posts, only: %i[index show]
+  
+  devise_for :users
+  root to: 'users#index'
+  resources :users, only: [:index, :show] do
+    resources :posts, only: [:index, :show, :new, :create] do
+      resources :comments, only: [:create]
+      resources :likes, only: [:create]
+    end
   end
 
-  root to: 'users#index'
 end

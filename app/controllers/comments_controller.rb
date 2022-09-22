@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class CommentsController < ApplicationController # rubocop:todo Style/Documentation
+class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.post_id = params[:post_id]

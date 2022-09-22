@@ -1,4 +1,2 @@
-# frozen_string_literal: true
-
-module PostsHelper # rubocop:todo Style/Documentation
+module PostsHelper
 end

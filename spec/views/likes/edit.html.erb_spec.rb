@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe 'likes/edit', type: :view do
@@ -10,7 +8,7 @@ RSpec.describe 'likes/edit', type: :view do
   it 'renders the edit like form' do
     render
 
-    assert_select 'form[action=?][method=?]', like_path(@like), 'post' do
+    assert_select 'form[action=?][method=?]', like_path(@like), 'post' do # rubocop:todo Lint/EmptyBlock
     end
   end
 end
