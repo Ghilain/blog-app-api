@@ -2,16 +2,25 @@
 
 <%= form_for(resource,data: { turbo: false },:class => 'user-form', as: resource_name, url: registration_path(resource_name))  do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <div>
+  <%= f.label :full_name ,:class => 'submit-label' %><br />
+  <%= f.text_field :name, autofocus: true ,:class => 'submit-field'%>
+  </div>
 
   <div class="field">
     <%= f.label :email ,:class => 'submit-label' %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",:class => 'submit-field' %>
   </div>
 
-  <div>
-  <%= f.label :name ,:class => 'submit-label' %><br />
-  <%= f.text_field :name, autofocus: true ,:class => 'submit-field'%>
+    <div class="field">
+    <%= f.label :photo ,:class => 'submit-label' %><br />
+    <%= f.text_field :photo, autofocus: true, :class => 'submit-field' %>
   </div>
+    <div class="field">
+    <%= f.label :bio ,:class => 'submit-label' %><br />
+    <%= f.text_field :bio, autofocus: true, :class => 'submit-field' %>
+  </div>
+
 
   <%= f.hidden_field :posts_counter, value: 0 %>
 
