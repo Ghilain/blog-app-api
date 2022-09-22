@@ -20,6 +20,7 @@ git clone `https://github.com/Ghilain/blog-app.git`
   cd `blog-app`
 
 ## Testing
+
 This command will run all the tests in your terminal:
 
 > rspec spec
