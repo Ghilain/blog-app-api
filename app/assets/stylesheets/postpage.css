@@ -1,0 +1,26 @@
+.header_post {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+}
+
+.header_post .right_side {
+  display: flex;
+}
+
+.header_post .right_side p {
+  margin-right: 0.3em;
+}
+
+.content_post {
+  font-size: 1.4rem;
+  font-weight: lighter;
+  padding: 1rem 0;
+}
+
+.comments_posts {
+  list-style: none;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+}

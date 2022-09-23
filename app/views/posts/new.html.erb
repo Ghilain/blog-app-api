@@ -1,0 +1,18 @@
+
+ <%= render partial: "components/navbar"%>
+<%= form_with model: @post, url: user_posts_path, method: :post do |form| %>
+<h2>Create new Post</h2>
+<ul class="list-unstyled">
+  <li>
+    <%= form.text_field :title, placeholder: 'Title' %>
+  </li>
+  <li >
+    <%= form.text_area :text, placeholder: 'Content' %>
+  </li>
+
+  <li >
+    <%= form.submit 'Create post' %>
+  </li>
+</ul>
+<% end %>
+
