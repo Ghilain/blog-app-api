@@ -3,20 +3,20 @@ RSpec.describe 'Post pages test', type: :feature do
     before :each do
       @user_first = User.create(name: 'Clara',
                                 # rubocop:todo Layout/LineLength
-                                photo: 'https://images.unsplash.com/photo-1492681290082-e932832941e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80', bio: 'A cute baby', posts_counter: 0)
+                                photo: 'https://images.unsplash.com/photo-1492681290082-e932832941e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80', bio: 'A cute baby', posts_count: 0)
       # rubocop:enable Layout/LineLength
       @post_first = Post.new(author: @user_first, title: 'Love must lead', text: 'This is my first post',
-                             comments_counter: 0, likes_counter: 0)
-      @post_first.update_posts_counter
+                             comments_count: 0, likes_count: 0)
+      @post_first.update_posts_count
       @post_first.save
 
       @comment = Comment.new(post: @post_first, author: @user_first, text: 'Hi Tom!')
-      @comment.update_comments_counter
+      @comment.update_comments_count
       @comment.save
 
       @like = Like.new(author_id: @user_first.id, post_id: @post_first.id)
       @like.save
-      @like.update_likes_counter
+      @like.update_likes_count
     end
 
     it 'Should set the link of the picture to the img src' do
@@ -70,20 +70,20 @@ RSpec.describe 'Post pages test', type: :feature do
 
   describe 'show page' do
     before :each do
-      @user_first = User.create(name: 'Clara', photo: 'mybaby.png', bio: 'A cute baby', posts_counter: 0)
+      @user_first = User.create(name: 'Clara', photo: 'mybaby.png', bio: 'A cute baby', posts_count: 0)
 
       @post_first = Post.new(author: @user_first, title: 'Love must lead', text: 'This is my first post',
-                             comments_counter: 0, likes_counter: 0)
-      @post_first.update_posts_counter
+                             comments_count: 0, likes_count: 0)
+      @post_first.update_posts_count
       @post_first.save
 
       @comment = Comment.new(post: @post_first, author: @user_first, text: 'Hi Tom!')
-      @comment.update_comments_counter
+      @comment.update_comments_count
       @comment.save
 
       @like = Like.new(author_id: @user_first.id, post_id: @post_first.id)
       @like.save
-      @like.update_likes_counter
+      @like.update_likes_count
     end
 
     it 'Should display the post title' do

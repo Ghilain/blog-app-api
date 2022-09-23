@@ -1,0 +1,13 @@
+<section>
+<%= form_with model: @comment,url: user_post_comments_url(@post.author, @post), method: :post do |form| %>
+
+  <div>
+    <%= form.text_area :text, placeholder: "Add a new Comment" %>
+  </div>
+
+  <div>
+    <%= form.submit "Add comment"%>
+  </div>
+
+<% end %>
+</section>

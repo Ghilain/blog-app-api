@@ -4,15 +4,15 @@ RSpec.describe 'Users pages test', type: :feature do
     before :each do
       @user_first = User.new(name: 'Pascal',
                              # rubocop:todo Layout/LineLength
-                             photo: 'https://images.unsplash.com/photo-1492681290082-e932832941e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80', bio: 'Teacher from Rwanda.', posts_counter: 0)
+                             photo: 'https://images.unsplash.com/photo-1492681290082-e932832941e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80', bio: 'Teacher from Rwanda.', posts_count: 0)
       # rubocop:enable Layout/LineLength
       @user_second = User.create(name: 'Ishimwe',
                                  # rubocop:todo Layout/LineLength
-                                 photo: 'https://images.unsplash.com/photo-1492681290082-e932832941e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80', bio: 'A beautiful lady', posts_counter: 1)
+                                 photo: 'https://images.unsplash.com/photo-1492681290082-e932832941e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80', bio: 'A beautiful lady', posts_count: 1)
       # rubocop:enable Layout/LineLength
       @user_third = User.create(name: 'Ghilain',
                                 # rubocop:todo Layout/LineLength
-                                photo: 'https://images.unsplash.com/photo-1492681290082-e932832941e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80', bio: 'A good guy', posts_counter: 2)
+                                photo: 'https://images.unsplash.com/photo-1492681290082-e932832941e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80', bio: 'A good guy', posts_count: 2)
       # rubocop:enable Layout/LineLength
     end
     it 'check users#index path' do
@@ -40,21 +40,21 @@ RSpec.describe 'Users pages test', type: :feature do
   end
   describe 'show page' do
     before :each do
-      @user_first = User.create(name: 'Pascal', photo: 'pic.png', bio: 'Teacher from Rwanda.', posts_counter: 2)
+      @user_first = User.create(name: 'Pascal', photo: 'pic.png', bio: 'Teacher from Rwanda.', posts_count: 2)
       @post_first = @user_first.posts.new(title: 'Love must lead', text: 'This is my first post')
-      @post_first.likes_counter = 0
-      @post_first.comments_counter = 0
-      @post_first.update_posts_counter
+      @post_first.likes_count = 0
+      @post_first.comments_count = 0
+      @post_first.update_posts_count
       @post_first.save
       @post_second = @user_first.posts.new(title: 'Being a good child', text: 'This is my second post')
-      @post_second.likes_counter = 0
-      @post_second.comments_counter = 0
-      @post_second.update_posts_counter
+      @post_second.likes_count = 0
+      @post_second.comments_count = 0
+      @post_second.update_posts_count
       @post_second.save
       @post_third = @user_first.posts.new(title: 'Going to school', text: 'This is my third post')
-      @post_third.likes_counter = 0
-      @post_third.comments_counter = 0
-      @post_third.update_posts_counter
+      @post_third.likes_count = 0
+      @post_third.comments_count = 0
+      @post_third.update_posts_count
       @post_third.save
     end
     it 'check users#show path' do

@@ -1,12 +1,12 @@
 form {
     width: 60vw;
-    max-width: 500px;
-    min-width: 300px;
+    max-width: 499px;
+    min-width: 311px;
     margin: 0 auto;
     padding-bottom: 2em;
 }
 
-form h3 {
+form h2 {
     font-size: 1.5rem;
 }
 

@@ -1,18 +1,24 @@
-<section >
-<div class="post-wrapper">
-<div>
-  <span> <%= @post.title %> By  <%= @post.author.name %> </span>
-  <span>
-    Comments: <%= @post.comments_counter %> , Likes: <%= @post.likes_counter %>
-  </span>
-</div>
-<p><%= @post.text %></p>
-</div>
-  <ul class="comments-list-cont">
-      <% if @post.comments_counter > 0 %>
-          <%= render 'shared/comment', comments: @post.comments %>
-      <% else %>
-      <li>No comments</li>
+ <%= render partial: "components/navbar"%>
+  <section>
+    <div class="header_post">
+      <h2><%= @post.title %> by: <%= @post.author.name %></h2>
+      <div class="right_side">
+        <p>Comments: <%= @post.comments_count.nil? ? 0 : @post.comments_count %>,</p>
+        <p>Likes: <%= @post.likes_count.nil? ? 0 : @post.likes_count %></p>
+      </div>
+    </div>
+    <% if can? :destroy, @post %>
+      <%= button_to 'Delete post', user_post_path(@post.author, @post), method: :delete %>
     <% end %>
-  </ul>   
-</section>
+    <div class="content_post">
+      <%= @post.text%>
+      <%= button_to 'Like', user_post_likes_path(@post.author, @post), method: :post, class: 'like_btn'%>
+    </div>
+    <ul class="list-unstyled">
+      <%= render partial: "posts/comment_form"%>
+      <% @post.comments.each do |comment| %>
+        <li class="comments_posts"><p><%= comment.author.name %>: <%= comment.text %></p></li>
+      <% end %>
+    </ul>
+  </section>
+  

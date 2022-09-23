@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -12,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'decc079d75639e0e7dbc34815fe7ae3dd0688e657288c5e1b20c8816009705648e86ebbfc5d6623a14ed0946d05b02a9617fc2a232549e593acba16e88e61c34'
+  # config.secret_key = 'cffa338db8d5bf76c86104bb412da9b5c063c6b09901212a1c345c549d8e9583d0b2cdcfc0488734edc1a8b06f5030de35641bd4d44763ba2e758c3bb6477fff'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -22,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'ishimweghilain5050@gmal.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -124,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '54f955abaaa5f0f36e0eeee5874a81586cab9c1b0135d8c8df2f8f0b765edbaa3aa1dd12006c20f1f36b1fc5dd62e521a5ad050a3ebdd15abc0863d2a4b80419'
+  # config.pepper = '5227aaeafdc5333d9ed47dfef315ed849e7b293dd8f38a99f7c9bfe30606dce7b53d6ad82c59c9279993bdecca6195e8ce2bba9243eeb5a9342040131a135555'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -306,5 +308,4 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  config.scoped_views = true
 end

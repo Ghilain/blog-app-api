@@ -1,20 +1,41 @@
-<section >
-  <%= render'posts/user', user: @user %>
-    <% @posts.each do |post| %>
-  <a <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
-    <div class="list-wrapper">
-    <ul class="post-list-cont"><%= render 'posts/post', post: post %></ul>
-    <ul class="comments-list-cont">
-      <% if post.comments_counter > 0 %>
-            <%= render 'posts/comment', comments: post.recent_five_comments %>
-      <% else %>
-        <li>No comments</li>
-      <% end %>
-      <ul>
+ <%= render partial: "components/navbar"%>
+<section>
+  <div class="user_list">
+    <div class="user_prof">
+      <img src=<%= @user.photo %> alt="profile pic">
     </div>
-  <a>
+    <div class="user_data">
+      <h3><%= @user.name%></h3>
+      <p>Posts Number: <%= @user.posts_count %></p>
+    </div>
+  </div> 
+            
+
+  <ul class="list-unstyled">
+
+    <% if @user == current_user %>
+      <%= link_to 'Add new post', new_user_post_path %>
     <% end %>
 
-  <div class="btn-wrapper">  <button type='button'>Pagination</button></div>
-
+    <% @user.recent_three_posts.each do |post|  %>
+      <li  class="list_post">
+        <h3>Post #<%= post.id%></h3>
+        <div class="title_post">
+          <h3><%= link_to post.title, user_post_path(post.author, post) %></h3>
+          <button type="button" class="btn btn-warning">Edit</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+          <p><%= post.text %></p>
+          <div class="post_info_sumr">
+            <p>Comments: <%= post.comments_count.nil? ? 0 : post.comments_count %>  </p>
+            <p>Likes: <%= post.likes_count.nil? ? 0 : post.likes_count %></p>
+          </div>
+        </div>
+        <div class="list_comment">
+          <% post.recent_comments_on_post.each do |comment| %>
+            <p><%= User.find(comment.author_id).name %>: <%= comment.text %></p>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </section>

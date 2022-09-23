@@ -1,18 +1,18 @@
-<section class="post-form-cont">
-  <h1>Create new Post </h1>
-  <%= form_with model: Post, url: user_posts_path, class:"post-form", method: :post do |f| %>
-      <div>
-      <%= f.hidden_field :comments_counter, value:0 %>
-      <%= f.hidden_field :likes_counter, value:0 %>
-      </div>
-      <div>
-      <%= f.label :title,"Title", class:'label' %>
-      <%= f.text_field :title, placeholder: 'Title of the post...', class:"title-input" %>
-      <%= f.label :text, "Content", class:'label' %>
-      </div>
-      <div>
-      <%= f.text_area :text, placeholder: 'Write your post...', class:"text-input" %>
-      <%= f.submit "Submit Post", class:"submit-btn", id:"post-btn" %>
-      </div>
-  <% end %>
-</section>
+
+ <%= render partial: "components/navbar"%>
+<%= form_with model: @post, url: user_posts_path, method: :post do |form| %>
+<h2>Create new Post</h2>
+<ul class="list-unstyled">
+  <li>
+    <%= form.text_field :title, placeholder: 'Title' %>
+  </li>
+  <li >
+    <%= form.text_area :text, placeholder: 'Content' %>
+  </li>
+
+  <li >
+    <%= form.submit 'Create post' %>
+  </li>
+</ul>
+<% end %>
+

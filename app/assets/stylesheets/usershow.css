@@ -1,0 +1,59 @@
+.single_user {
+    background-color: rgb(216, 204, 204);
+  }
+  
+  .user_bio h2 {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  
+  .user_bio p {
+    font-size: 1.3rem;
+    font-weight: lighter;
+  }
+  
+  .list_post {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+  
+  .list_post h2 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .title_post {
+    font-size: 1.5rem;
+  }
+  
+  .list_post p {
+    font-size: 1.3rem;
+    font-weight: lighter;
+  }
+  
+  .post_info_sumr {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 0;
+  }
+  
+  .post_info_sumr p:first-child {
+    margin-right: 0.5rem;
+  }
+  
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    width: 15%;
+    align-self: center;
+  }
+  
+  .list_comment {
+    border: 1.2px solid rgb(0, 0, 0);
+    padding: 1rem;
+  }
